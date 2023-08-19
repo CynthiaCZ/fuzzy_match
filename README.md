@@ -1,4 +1,4 @@
-# fuzzy_match
+# Product Name Fuzzy Match
 This program uses FuzzyWuzzy, a fuzzy string-matching program in Python, to compare E-commerce products and brand names. It aims to identify matches and discrepancies between a renowned Singaporean online shopping site and its competing platform. For each entry in the competitor's dataset, the program outputs the top matches along with their similarity scores and prices. On average, the top five matches exhibit an accuracy rate exceeding 90%, proving it highly effective in identifying assortment and pricing gaps between the two companies.
 
 ## Packages and Versions
