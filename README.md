@@ -6,14 +6,14 @@ python 3.11.0\
 numpy 1.15.1\
 pandas 3.6.6\
 tqdm 4.64.1 \
-fuzzywuzzy 0.18.0\
+fuzzywuzzy 0.18.0
 
 ## Files and Contents
 ├── data: internal data, not published\
 ├──── shopee.xlsx \
 ├──── lazada.xlsx \
-├──── fuzzy_match.xlsx: output from fuzzy_match.py
-├──── fuzzy_match_w_price.xlsx: output from add_price.py
-├── fuzzy_match.py: perform fuzzy string matching and outputs a xlsx file with top 5 matches
+├──── fuzzy_match.xlsx: output from fuzzy_match.py \
+├──── fuzzy_match_w_price.xlsx: output from add_price.py \
+├── fuzzy_match.py: perform fuzzy string matching and outputs a xlsx file with top 5 matches \
 ├── add_price.py: calculate and compare prices from both companies \
 └── README.md
