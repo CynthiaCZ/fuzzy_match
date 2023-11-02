@@ -21,19 +21,19 @@ matched['fuzz_WRatio'] = matched.apply(lambda row: fuzz.token_set_ratio(row['l_n
 matched['fuzz_WRatio'].mean()
 # mean weighted ratio of manually matched rows is 88.18
 
-### function to get top 3 matches
+### function to get top n matches, default 5
 def get_top_matches(row, choices, selected_columns, num_matches=5):
     brand_choices = choices[choices['s_brand'].apply(lambda x: fuzz.token_set_ratio(row['l_brand'], x) >= 80)]
     matches = process.extract(row['l_name'], brand_choices['s_name'], scorer=fuzz.token_sort_ratio, limit=num_matches)
-    top_3_info = []
+    top_info = []
     
     for match in matches:
         matched_row = choices.iloc[match[2]]
-        top_3_info.append(matched_row[selected_columns].tolist() + [match[1]])
-    while len(top_3_info) < num_matches:
-        top_3_info.append([None] * (len(selected_columns) + 1))
-    top_3_result = [list(x) for x in zip(*top_3_info)]
-    return pd.Series(top_3_result, index=selected_columns + ['similarity_score'])
+        top_info.append(matched_row[selected_columns].tolist() + [match[1]])
+    while len(top_info) < num_matches:
+        top_info.append([None] * (len(selected_columns) + 1))
+    top_results = [list(x) for x in zip(*top_info)]
+    return pd.Series(top_results, index=selected_columns + ['similarity_score'])
 
 selected_columns = ['s_name', 's_sku_id', 's_url']
 
